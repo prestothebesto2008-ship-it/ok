@@ -1,0 +1,30 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const cartDrawer = document.getElementById('ajax-cart');
+  const cartButton = document.querySelector('a[href="/cart"]');
+  const closeButton = document.getElementById('close-cart');
+
+  function updateCart() {
+    fetch('/cart.js')
+      .then(res => res.json())
+      .then(cart => {
+        const itemsContainer = document.getElementById('cart-items');
+        itemsContainer.innerHTML = '';
+        cart.items.forEach(item => {
+          const div = document.createElement('div');
+          div.textContent = `${item.quantity} x ${item.product_title}`;
+          itemsContainer.appendChild(div);
+        });
+        document.getElementById('cart-total').textContent = Shopify.formatMoney(cart.total_price);
+      });
+  }
+
+  cartButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    cartDrawer.style.right = '0';
+    updateCart();
+  });
+
+  closeButton.addEventListener('click', function() {
+    cartDrawer.style.right = '-400px';
+  });
+});
