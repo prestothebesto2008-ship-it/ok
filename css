@@ -1,68 +1,31 @@
-/* Reset and base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #fff;
-  color: #111;
-  line-height: 1.6;
-  overflow-x: hidden;
-  scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #555;
-}
-
-/* Header */
-header {
+/* Cart drawer */
+.ajax-cart {
   position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
-  z-index: 999;
-  transition: all 0.3s ease;
+  top:0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background:#fff;
+  box-shadow: -3px 0 15px rgba(0,0,0,0.2);
+  padding:2rem;
+  transition: right 0.4s ease;
+  z-index:1000;
+}
+.ajax-cart h3 { margin-bottom:1rem; }
+.ajax-cart button { margin-top:1rem; }
+
+/* Homepage banner text animation */
+.homepage-banner h1 {
+  animation: fadeInUp 1.5s ease forwards;
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(20px);}
+  to { opacity:1; transform: translateY(0);}
 }
 
-main {
-  padding-top: 80px; /* Space for fixed header */
-}
+/* Product hover animation */
+.product-card { transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; }
+.product-card:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 
-/* Buttons */
-button {
-  border: 2px solid #111;
-  background: transparent;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* Smooth transitions for sections */
-.fade-enter, .fade-leave {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-active, .fade-leave-active {
-  opacity: 1;
-}
+/* Lazy loading images */
+.product-card img { display:block; width:100%; height:auto; }
