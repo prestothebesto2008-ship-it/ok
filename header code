@@ -5,4 +5,5 @@
     <a href="/pages/about">About</a>
     <a href="/cart">Cart</a>
   </nav>
+{% include 'ajax-cart' %}
 </header>
