@@ -6,4 +6,5 @@
     <a href="/cart">Cart</a>
   </nav>
 {% include 'ajax-cart' %}
+<script src="{{ 'ajax-cart.js' | asset_url }}" defer></script>
 </header>
